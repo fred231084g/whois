@@ -44,16 +44,16 @@ import static net.ripe.db.whois.common.domain.CIString.ciString;
 
 @Repository
 @Transactional
-public class JdbcRpslObjectUpdateDao implements RpslObjectUpdateDao {
+public class  JdbcRpslObjectUpdateDao implements RpslObjectUpdateDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(JdbcRpslObjectUpdateDao.class);
 
     private final JdbcTemplate jdbcTemplate;
     private final DateTimeProvider dateTimeProvider;
 
     @Autowired
-    public JdbcRpslObjectUpdateDao(@Qualifier("sourceAwareDataSource") final DataSource dataSource,
+    public JdbcRpslObjectUpdateDao( @Qualifier("whoisMasterDataSource") final DataSource whoisMasterDataSource,
                                    final DateTimeProvider dateTimeProvider) {
-        this.jdbcTemplate = new JdbcTemplate(dataSource);
+        this.jdbcTemplate = new JdbcTemplate(whoisMasterDataSource);
         this.dateTimeProvider = dateTimeProvider;
     }
 
