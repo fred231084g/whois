@@ -166,6 +166,7 @@ public class JettyRequestLogTestIntegration extends AbstractIntegrationTest {
     // helper methods
 
     // Ref. https://logging.apache.org/log4j/2.x/manual/customconfig.html
+    @SuppressWarnings("deprecation")
     private void addLog4jAppender() {
         final LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
         final Configuration config = ctx.getConfiguration();
